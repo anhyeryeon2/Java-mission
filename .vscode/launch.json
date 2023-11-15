@@ -1,0 +1,133 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ArrayAccess",
+            "request": "launch",
+            "mainClass": "ArrayAccess",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "CircleExam",
+            "request": "launch",
+            "mainClass": "CircleExam",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "ContinueExample",
+            "request": "launch",
+            "mainClass": "ContinueExample",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "DoWhileSample",
+            "request": "launch",
+            "mainClass": "DoWhileSample",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "ForSample",
+            "request": "launch",
+            "mainClass": "ForSample",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "IrregularArray",
+            "request": "launch",
+            "mainClass": "IrregularArray",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "OOP1018_1",
+            "request": "launch",
+            "mainClass": "OOP1018_1",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "OOP1018_2",
+            "request": "launch",
+            "mainClass": "OOP1018_2",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "OOP1018_3",
+            "request": "launch",
+            "mainClass": "OOP1018_3",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "OOP1101_1",
+            "request": "launch",
+            "mainClass": "OOP1101_1",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "OOP1101_2",
+            "request": "launch",
+            "mainClass": "OOP1101_2",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "OOP1101_3",
+            "request": "launch",
+            "mainClass": "OOP1101_3",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "OOP1109_1",
+            "request": "launch",
+            "mainClass": "OOP1109_1",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "ScoreAverage",
+            "request": "launch",
+            "mainClass": "ScoreAverage",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "WhileSample",
+            "request": "launch",
+            "mainClass": "WhileSample",
+            "projectName": "java전병환_e00bbe8f"
+        },
+        {
+            "type": "java",
+            "name": "foreaxhEx",
+            "request": "launch",
+            "mainClass": "foreaxhEx",
+            "projectName": "java전병환_e00bbe8f"
+        }
+    ]
+}

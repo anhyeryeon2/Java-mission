@@ -1,0 +1,3 @@
+Hello. This is object-oriented programming.
+You're working on the Week 10 lab.
+This problem is about buffered input and output streams.

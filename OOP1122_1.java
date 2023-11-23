@@ -3,7 +3,6 @@ import java.awt.*;
 
 public class OOP1122_1 {
     public static void main(String[] args) {
-        // 프레임 생성
         JFrame frame = new JFrame("Swing Example");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         

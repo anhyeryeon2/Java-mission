@@ -1,31 +1,21 @@
-import java.io.*;
 import java.util.*;
-import java.util.concurrent.*;
 
 public class PrimeNumberFinder implements Runnable {
-    private int start, end;
-    private List<Integer> primes;
+    public int start, end;
+    public List<Integer> numberlist;
+    
 
-    public PrimeNumberFinder(int start, int end, List<Integer> primes) {
+    public PrimeNumberFinder(int start, int end) {
         this.start = start;
         this.end = end;
-        this.primes = primes;
+        this.numberlist = new ArrayList<>(); 
     }
 
-    @Override
-    public void run() {
-        for (int i = start; i <= end; i++) {
-            if (isPrime(i)) {
-                synchronized (primes) {
-                    primes.add(i);
-                }
-            }
+    public boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
         }
-    }
-
-    private boolean isPrime(int number) {
-        if (number <= 1) return false;
-        for (int i = 2; i <= Math.sqrt(number); i++) {
+        for (int i = 2; i <= number / 2; i++) {
             if (number % i == 0) {
                 return false;
             }
@@ -33,25 +23,57 @@ public class PrimeNumberFinder implements Runnable {
         return true;
     }
 
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+    @Override
+    public void run() {
+        for (int i = start; i <= end; i++) {
+            if (isPrime(i)) {
+                numberlist.add(i); 
+            }
+        }
+    }
+    public List<Integer> getnumberlist() {
+        return numberlist; 
+    }
 
-        List<Integer> primes = Collections.synchronizedList(new ArrayList<>());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+
         int threadCount = Runtime.getRuntime().availableProcessors();
-        ExecutorService executor = Executors.newFixedThreadPool(threadCount);
-        int chunkSize = n / threadCount;
+        PrimeNumberFinder[] p = new PrimeNumberFinder[threadCount];
+        Thread[] threads = new Thread[threadCount];
 
+        int size = n / threadCount;
         for (int i = 0; i < threadCount; i++) {
-            int start = i * chunkSize + 1;
-            int end = (i == threadCount - 1) ? n : start + chunkSize - 1;
-            executor.execute(new PrimeNumberFinder(start, end, primes));
+            int start = i * size + 1;
+            int end;
+            if (i == threadCount - 1) {
+                end = n;
+            } else {
+                end = start + size - 1;
+            }
+
+            PrimeNumberFinder primefinder = new PrimeNumberFinder(start, end);
+            p[i] = primefinder;
+            Thread threadForPrimeFinder = new Thread(primefinder);
+            threads[i] = threadForPrimeFinder;
+            threadForPrimeFinder.start();
         }
 
-        executor.shutdown();
-        executor.awaitTermination(1, TimeUnit.HOURS);
+        List<Integer> allnumber = new ArrayList<>();
+        try {
+            for (int i = 0; i < threadCount; i++) {
+                threads[i].join();
+                allnumber.addAll(p[i].getnumberlist()); 
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        Collections.sort(primes);
-        primes.forEach(prime -> System.out.print(prime + " "));
+        Collections.sort(allnumber); 
+        for (Integer prime : allnumber) {
+            System.out.print(prime + " ");
+        }
+        scanner.close();
     }
 }
